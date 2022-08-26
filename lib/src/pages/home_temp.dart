@@ -43,8 +43,21 @@ class HomePageTemp extends StatelessWidget {
         .toList(); // esta forma aparentemente hace lo mismo pero la devolucion es un objeto totalmente diferente
 
     var otra = opciones.map((item) {
-      return ListTile(
-        title: Text('$item   !'),
+      return Column(
+        children: [
+          ListTile(
+            title: Text('$item   !'),
+            subtitle: const Text('testing'), // un subtitulo debado de n title
+            leading: const Icon(Icons
+                .account_balance_wallet), // esta propiedad pone un icono al incio de la columna
+            trailing: const Icon(Icons
+                .keyboard_arrow_right), // this line put an icon at the end of a line
+            onTap:
+                () {}, // solo con add la referencia de este metodo ya me habilita la posibilidad de dar clic en la columna
+            // se habilita el efecto de dar clic.
+          ),
+          const Divider()
+        ],
       );
     }).toList();
 

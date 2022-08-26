@@ -1,0 +1,28 @@
+"nombreApp":"Componentes",
+
+"rutas":[
+	 {       
+	  "ruta":"alert",
+	  "icon":"add_alert",
+	  "texto":"alertas"
+	 },
+
+	{       
+	  "ruta":"avatars",
+	  "icon":"accesibility",
+	  "texto":"avatars"
+	 },
+
+	{       
+	  "ruta":"card",
+	  "icon":"folder_open",
+	  "texto":"Cards-Tarjetas"
+	 }
+  
+]
+
+
+		}
+
+"":""
+ 
