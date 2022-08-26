@@ -10,7 +10,10 @@ class HomePageTemp extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Componentes Temp'),
       ),
-      body: ListView(),
+      body: ListView(
+        children: crearItems(),
+        //children: crearItemCorta(),
+      ),
     );
   }
 
@@ -27,5 +30,24 @@ class HomePageTemp extends StatelessWidget {
       listWidget.add(const Divider());
     }
     return listWidget;
+  }
+
+// esta funcion devuelve una transformacion de lo que se guardo en una variable
+  List<Widget> crearItemCorta() {
+    var widget = opciones
+        .map((e) => {
+              ListTile(
+                title: Text('$e !!'),
+              )
+            })
+        .toList(); // esta forma aparentemente hace lo mismo pero la devolucion es un objeto totalmente diferente
+
+    var otra = opciones.map((item) {
+      return ListTile(
+        title: Text('$item   !'),
+      );
+    }).toList();
+
+    return otra;
   }
 }
