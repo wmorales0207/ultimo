@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+
+import 'package:ultimo/src/pages/home_page.dart';
 // Notas importantes.
 /*1 Despues de cada asigancion de propiedad a un widget va una coma
 2 Aunque en las asignaciones hallan widget dentro de widget se pone coma igual
@@ -16,7 +18,9 @@ class MyExampleApp extends StatelessWidget {
       title: 'Componentes App',
       debugShowCheckedModeBanner: false,
       home: Center(
-        child: Text("Hola Mundo"),
+        child:
+            HomePage(), //se hace una llamada a la siguiete clase, que se encarga de darle formato al center con el scalfold..
+        //separando en este caso la logica,,,
       ),
     );
   }
