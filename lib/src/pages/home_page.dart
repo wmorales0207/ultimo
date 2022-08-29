@@ -40,6 +40,7 @@ class HomePage extends StatelessWidget {
         child: const Icon(Icons.accessibility_new),
         // esta funcion vacia garantiza que se pueda hacer la accion de dar clic, si se le asigna NULL es como si el boton estuviese desabilitado
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
