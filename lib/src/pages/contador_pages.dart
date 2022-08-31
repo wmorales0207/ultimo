@@ -11,7 +11,7 @@ class ContadorPage extends StatefulWidget {
 // esta clase es el estado de la otra clase y no va ser usada fuera de la misma por lo que sera privada
 class _ContadorPageState extends State<ContadorPage> {
   final _estiloTexto = const TextStyle(fontSize: 30);
-  final int _conteo = 10;
+  int _conteo = 10;
 
   @override
   Widget build(BuildContext context) {
@@ -42,38 +42,52 @@ class _ContadorPageState extends State<ContadorPage> {
       floatingActionButton: _crearBotones(),
     );
   }
-}
 
-Widget _crearBotones() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment
-        .center, // define la alineacion del los widget contenidos en el row
+  Widget _crearBotones() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment
+          .center, // define la alineacion del los widget contenidos en el row
 
-    // por defecto el row alinia los widget a la izquierda
-    children: const <Widget>[
-      SizedBox(
-        width: 30,
-      ),
-      FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.exposure_zero),
-      ),
-      Expanded(
-        // el expanded necesita un Child y por eso se le pone un SizedBox (vacio)
-        child:
-            SizedBox(), //por defecto no se nota , define espacios entre los widget
-      ),
-      FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.remove),
-      ),
-      SizedBox(
-        width: 10,
-      ),
-      FloatingActionButton(
-        onPressed: null,
-        child: Icon(Icons.add),
-      ),
-    ],
-  );
+      // por defecto el row alinia los widget a la izquierda
+      children: <Widget>[
+        const SizedBox(
+          width: 30,
+        ),
+        FloatingActionButton(
+          onPressed: _putZero,
+          child: const Icon(Icons.exposure_zero),
+        ),
+        const Expanded(
+          // el expanded necesita un Child y por eso se le pone un SizedBox (vacio)
+          child:
+              SizedBox(), //por defecto no se nota , define espacios entre los widget
+        ),
+        FloatingActionButton(
+          onPressed: _remove,
+          child: const Icon(Icons.remove),
+        ),
+        const SizedBox(
+          width: 10,
+        ),
+        FloatingActionButton(
+          onPressed:
+              _agregar, // aca a pesar de que _agregr es un metodo no se pone parentesis
+          // pues no se desea que se ejecute el codigo solo cuando se presione el boton no cuando se crea
+          child: const Icon(Icons.add),
+        ),
+      ],
+    );
+  }
+
+  void _remove() {
+    setState(() => _conteo = 0);
+  }
+
+  void _putZero() {
+    setState(() => _conteo--);
+  }
+
+  void _agregar() {
+    setState(() => _conteo++);
+  }
 }
