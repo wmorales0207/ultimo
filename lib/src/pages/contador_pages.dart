@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
+// los statefull conta de 2 clases el estado y el statefull . ambas clases.
 
-class HomePage extends StatelessWidget {
-  final estiloTexto = const TextStyle(fontSize: 30);
-  final int conteo = 10;
-  // la creacionde estiloTexto permite que no tenga que repetor codigo para hacer referencia al uso de la configuracion
-  // de text Style de los textos..
+class ContadorPage extends StatefulWidget {
+  const ContadorPage({Key? key}) : super(key: key);
 
-  const HomePage({Key? key}) : super(key: key);
+  @override
+  createState() => _ContadorPageState();
+}
+
+// esta clase es el estado de la otra clase y no va ser usada fuera de la misma por lo que sera privada
+class _ContadorPageState extends State<ContadorPage> {
+  final _estiloTexto = const TextStyle(fontSize: 30);
+  final int _conteo = 10;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Titulo"),
+        title: const Text("Statefull"),
         centerTitle: true,
         shadowColor: Colors.black, // modificando el comportamiento del widgets
       ),
@@ -25,18 +30,23 @@ class HomePage extends StatelessWidget {
             Text(
               "numero de clics",
               style:
-                  estiloTexto, // se uso un propiedad creada para eliminar la duplicidad de codigo
+                  _estiloTexto, // se uso un propiedad creada para eliminar la duplicidad de codigo
             ), // los contructores de todos los widget traten muchos otros parametros opcionales que se pueden usar
             Text(
-              "$conteo",
-              style: estiloTexto,
+              "$_conteo",
+              style: _estiloTexto,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (() {
-          print("Hola Mene"); // para mostrar por consola
+          setState(() {
+            // esta llamada hace que se redibuje el componente, no es necesario poner el codigo dentro de setstate.
+            //
+            print("Mene");
+            _conteo + 2;
+          });
         }),
         child: const Icon(Icons.accessibility_new),
         // esta funcion vacia garantiza que se pueda hacer la accion de dar clic, si se le asigna NULL es como si el boton estuviese desabilitado
