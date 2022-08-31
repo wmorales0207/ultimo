@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  final estiloTexto = const TextStyle(fontSize: 25);
+  final estiloTexto = const TextStyle(fontSize: 30);
   // la creacionde estiloTexto permite que no tenga que repetor codigo para hacer referencia al uso de la configuracion
   // de text Style de los textos..
 
@@ -35,12 +35,14 @@ class HomePage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (() {
-          print("Hola Mene");
+          print("Hola Mene"); // para mostrar por consola
         }),
         child: const Icon(Icons.accessibility_new),
         // esta funcion vacia garantiza que se pueda hacer la accion de dar clic, si se le asigna NULL es como si el boton estuviese desabilitado
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // la propiedad floatingActionButtonLocation es del scaffold y define la posicion del boton,en muchas ocasiones las caracteristicas las tiene el widget superior, es decir que el comportamiento de un widget lo define su widget padre.
+      // siempre se debe revisar la documentacion para definir que recibe un widget.
     );
   }
 }
