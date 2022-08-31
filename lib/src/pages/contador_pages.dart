@@ -39,21 +39,41 @@ class _ContadorPageState extends State<ContadorPage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (() {
-          setState(() {
-            // esta llamada hace que se redibuje el componente, no es necesario poner el codigo dentro de setstate.
-            //
-            print("Mene");
-            _conteo + 2;
-          });
-        }),
-        child: const Icon(Icons.accessibility_new),
-        // esta funcion vacia garantiza que se pueda hacer la accion de dar clic, si se le asigna NULL es como si el boton estuviese desabilitado
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      // la propiedad floatingActionButtonLocation es del scaffold y define la posicion del boton,en muchas ocasiones las caracteristicas las tiene el widget superior, es decir que el comportamiento de un widget lo define su widget padre.
-      // siempre se debe revisar la documentacion para definir que recibe un widget.
+      floatingActionButton: _crearBotones(),
     );
   }
+}
+
+Widget _crearBotones() {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment
+        .center, // define la alineacion del los widget contenidos en el row
+
+    // por defecto el row alinia los widget a la izquierda
+    children: const <Widget>[
+      SizedBox(
+        width: 30,
+      ),
+      FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.exposure_zero),
+      ),
+      Expanded(
+        // el expanded necesita un Child y por eso se le pone un SizedBox (vacio)
+        child:
+            SizedBox(), //por defecto no se nota , define espacios entre los widget
+      ),
+      FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.remove),
+      ),
+      SizedBox(
+        width: 10,
+      ),
+      FloatingActionButton(
+        onPressed: null,
+        child: Icon(Icons.add),
+      ),
+    ],
+  );
 }
